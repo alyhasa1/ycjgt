@@ -155,7 +155,7 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Featured Image */}
         {post.featuredImageUrl && (
-          <div className="mb-10 rounded-2xl overflow-hidden">
+          <div className="mb-10 rounded-xl overflow-hidden">
             <img
               src={post.featuredImageUrl}
               alt={post.title}
@@ -168,7 +168,7 @@ export default async function BlogPostPage({ params }: Props) {
         <BlogPostContent content={post.content} />
 
         {/* CTA */}
-        <div className="mt-16 p-8 rounded-2xl bg-gradient-to-br from-[#0D1B3E] to-[#1a2d5a] text-center">
+        <div className="mt-16 p-8 rounded-xl bg-gradient-to-br from-[#0D1B3E] to-[#1a2d5a] text-center">
           <h3 className="text-2xl font-bold text-white mb-3">
             Ready to Generate?
           </h3>

@@ -122,10 +122,22 @@ body {
 
 .bg-mesh {
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(79, 195, 247, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(144, 202, 249, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(129, 212, 250, 0.1) 0%, transparent 50%),
-    linear-gradient(180deg, #F0F4F8 0%, #E8F4FD 50%, #EDF4FA 100%);
+    radial-gradient(ellipse at 24% 46%, rgba(148, 163, 184, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 76% 22%, rgba(148, 163, 184, 0.05) 0%, transparent 56%),
+    radial-gradient(ellipse at 52% 78%, rgba(203, 213, 225, 0.08) 0%, transparent 60%),
+    linear-gradient(180deg, #F8FAFC 0%, #F5F7FA 48%, #F7F9FC 100%);
+}
+
+.animated-ring-wrap {
+  border-radius: 1rem;
+  padding: 1px;
+  background: rgba(148, 163, 184, 0.28);
+}
+
+.animated-ring-panel {
+  border-radius: calc(1rem - 1px);
+  background: rgba(255, 255, 255, 0.985);
+  overflow: hidden;
 }
 
 .noise-overlay::after {

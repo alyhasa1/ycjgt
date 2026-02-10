@@ -155,10 +155,10 @@ export function ChatDemo() {
   const viewKey = chatVisible ? "chat" : "empty";
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full min-h-0 flex-col">
       {/* Chat messages area — scrollable */}
-      <div ref={scrollRef} className="flex-1 overflow-y-auto overflow-x-hidden px-4 md:px-6 py-6">
-        <div className="mx-auto max-w-[720px] flex flex-col gap-4 min-h-full">
+      <div ref={scrollRef} className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden px-4 py-6 md:px-6">
+        <div className="mx-auto flex min-h-full w-full max-w-[720px] flex-col gap-4">
           <AnimatePresence mode="wait">
             {viewKey === "empty" ? (
               <motion.div
@@ -190,7 +190,7 @@ export function ChatDemo() {
                         duration: 0.35,
                         ease: [0.25, 1, 0.5, 1],
                       }}
-                      className="text-base md:text-lg font-semibold text-navy/20 tracking-tight"
+                      className="text-base md:text-lg font-semibold text-navy/30 tracking-tight"
                     >
                       {word}
                     </motion.span>
@@ -203,10 +203,10 @@ export function ChatDemo() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8, duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
                   onClick={startDemo}
-                  className="group flex items-center gap-2 rounded-xl border border-navy/[0.08] text-sm font-medium text-navy/50 shadow-sm hover:bg-white/80 hover:text-navy/70 hover:border-navy/[0.12] hover:shadow-md cursor-pointer transition-all duration-200"
+                  className="group flex items-center gap-2 rounded-xl border border-navy/[0.08] px-3 py-2 text-sm font-medium text-navy/50 shadow-sm transition-all duration-200 hover:border-navy/[0.12] hover:bg-white/80 hover:text-navy/70 hover:shadow-md cursor-pointer"
                 >
                   <PlayCircle className="h-4 w-4 text-primary group-hover:text-primary-dark transition-colors" />
-                  
+                  <span>How it works</span>
                 </motion.button>
               </motion.div>
             ) : (
@@ -226,7 +226,7 @@ export function ChatDemo() {
                   className="flex gap-3 justify-end"
                 >
                   <div className="max-w-[520px]">
-                    <div className="rounded-2xl rounded-tr-sm bg-navy/[0.04] px-4 py-3">
+                    <div className="rounded-xl rounded-tr-sm bg-navy/[0.04] px-4 py-3">
                       <p className="mb-2 text-[13px] text-navy/60">Generate a storyboard from these assets:</p>
                       <div className="flex flex-wrap gap-1.5">
                         {DEMO_ASSETS.map((a) => (
@@ -425,17 +425,16 @@ export function ChatDemo() {
       </div>
 
       {/* Input bar — pinned bottom */}
-      <div className="flex-shrink-0 px-4 md:px-6 pb-4 md:pb-5 pt-2">
+      <div className="flex-shrink-0 px-4 pt-2 pb-[max(1rem,env(safe-area-inset-bottom))] md:px-6 md:pb-5">
         <div className="mx-auto max-w-[720px]">
-          <div
-            className="rounded-xl overflow-hidden transition-all duration-300"
-            style={{
-              background: "rgba(255,255,255,0.65)",
-              backdropFilter: "blur(16px)",
-              border: "1px solid rgba(0,0,0,0.04)",
-              boxShadow: "0 1px 8px rgba(0,0,0,0.04)",
-            }}
-          >
+          <div className="animated-ring-wrap rounded-xl transition-all duration-300">
+            <div
+              className="animated-ring-panel overflow-hidden rounded-xl"
+              style={{
+                backdropFilter: "blur(16px)",
+                WebkitBackdropFilter: "blur(16px)",
+              }}
+            >
             {/* Dropping thumbnails */}
             <AnimatePresence>
               {inputAssets.length > 0 && phase === "dropping" && (
@@ -446,7 +445,7 @@ export function ChatDemo() {
                   transition={{ duration: 0.25 }}
                   className="overflow-hidden"
                 >
-                  <div className="flex gap-2 p-3 pb-1 overflow-x-auto">
+                  <div className="flex gap-2 overflow-x-auto px-3 pt-3 pb-2">
                     {inputAssets.map((asset) => (
                       <motion.div
                         key={asset.id}
@@ -470,26 +469,27 @@ export function ChatDemo() {
               )}
             </AnimatePresence>
 
-            <div className="flex items-center gap-2 px-4 py-3">
-              <ImageIcon className="h-4 w-4 text-navy/15 flex-shrink-0" />
-              <span className="flex-1 text-sm text-navy/25 select-none">Drop images, videos, or describe your vision...</span>
+            <div className="flex items-center gap-2.5 px-4 py-3.5">
+              <ImageIcon className="h-4 w-4 shrink-0 text-navy/25" />
+              <span className="flex-1 text-sm text-navy/40 select-none">Drop images, videos, or describe your vision...</span>
             </div>
 
-            <div className="flex items-center justify-between px-3 pb-2.5 -mt-1">
-              <div className="flex items-center gap-1">
-                <button className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-[11px] font-medium text-navy/35 hover:text-navy/50 hover:bg-navy/[0.04] cursor-pointer transition-colors">
+            <div className="flex items-center justify-between px-3.5 pb-3 pt-2">
+              <div className="flex items-center gap-1.5">
+                <button className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-[11px] font-medium text-navy/45 hover:text-navy/65 hover:bg-white/80 cursor-pointer transition-colors">
                   <Paperclip className="h-3.5 w-3.5" />Attach
                 </button>
-                <button className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-[11px] font-medium text-navy/35 hover:text-navy/50 hover:bg-navy/[0.04] cursor-pointer transition-colors">
+                <button className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-[11px] font-medium text-navy/45 hover:text-navy/65 hover:bg-white/80 cursor-pointer transition-colors">
                   <Wand2 className="h-3.5 w-3.5" />Storyboard
                 </button>
               </div>
-              <button className="flex h-8 w-8 items-center justify-center rounded-lg bg-navy/[0.07] text-navy/40 hover:bg-navy/[0.12] hover:text-navy/55 cursor-pointer transition-colors">
+              <button className="flex h-9 w-9 items-center justify-center rounded-xl bg-navy/[0.08] text-navy/45 hover:bg-navy/[0.12] hover:text-navy/60 cursor-pointer transition-colors">
                 <Send className="h-3.5 w-3.5" />
               </button>
             </div>
+            </div>
           </div>
-          <p className="mt-2 text-center text-[10px] text-navy/12 select-none">ycjgt uses AI to generate content. Results may vary.</p>
+          <p className="mt-2.5 text-center text-[10px] text-navy/20 select-none">ycjgt uses AI to generate content. Results may vary.</p>
         </div>
       </div>
     </div>

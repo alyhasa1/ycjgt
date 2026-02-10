@@ -67,7 +67,7 @@ export default async function CategoryPage({ params }: Props) {
             <Link
               key={post._id}
               href={`/blog/${post.slug}`}
-              className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-[#0D1B3E]/5"
+              className="group block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-[#0D1B3E]/5"
             >
               {post.featuredImageUrl && (
                 <div className="aspect-video overflow-hidden bg-[#0D1B3E]/5">

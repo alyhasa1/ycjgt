@@ -51,7 +51,7 @@ export default async function BlogIndexPage() {
 
       {posts.length === 0 ? (
         <div className="text-center py-24">
-          <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-slate-100 flex items-center justify-center">
+          <div className="w-16 h-16 mx-auto mb-6 rounded-xl bg-slate-100 flex items-center justify-center">
             <Sparkles className="w-8 h-8 text-slate-300" />
           </div>
           <p className="text-slate-400 text-lg">No posts yet. Check back soon!</p>
@@ -123,7 +123,7 @@ export default async function BlogIndexPage() {
                   <Link
                     key={post._id}
                     href={`/blog/${post.slug}`}
-                    className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm shadow-slate-200/50 border border-slate-100 hover:shadow-lg hover:shadow-slate-200/60 hover:-translate-y-1 transition-all duration-300"
+                    className="group flex flex-col bg-white rounded-xl overflow-hidden shadow-sm shadow-slate-200/50 border border-slate-100 hover:shadow-lg hover:shadow-slate-200/60 hover:-translate-y-1 transition-all duration-300"
                   >
                     {post.featuredImageUrl ? (
                       <div className="aspect-[16/10] overflow-hidden bg-slate-100">
