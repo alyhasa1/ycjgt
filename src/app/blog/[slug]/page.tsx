@@ -1,4 +1,5 @@
 import { getConvexClient } from "@/lib/convex";
+import { SITE_URL } from "@/lib/site-url";
 import { api } from "../../../../convex/_generated/api";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -71,19 +72,19 @@ export default async function BlogPostPage({ params }: Props) {
     author: {
       "@type": "Organization",
       name: "You Can Just Generate Things",
-      url: "https://youcanjustgeneratethings.com",
+      url: SITE_URL,
     },
     publisher: {
       "@type": "Organization",
       name: "You Can Just Generate Things",
       logo: {
         "@type": "ImageObject",
-        url: "https://youcanjustgeneratethings.com/ycjgt.png",
+        url: `${SITE_URL}/ycjgt.png`,
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://youcanjustgeneratethings.com/blog/${slug}`,
+      "@id": `${SITE_URL}/blog/${slug}`,
     },
   };
 

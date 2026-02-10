@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ConvexClientProvider } from "@/components/providers/convex-provider";
+import { SITE_URL } from "@/lib/site-url";
 import "./globals.css";
 
 const inter = Inter({
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/ycjgt.png",
   },
-  metadataBase: new URL("https://youcanjustgeneratethings.com"),
+  metadataBase: new URL(SITE_URL),
 };
 
 export default function RootLayout({

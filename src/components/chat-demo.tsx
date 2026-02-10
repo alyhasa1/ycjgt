@@ -203,10 +203,10 @@ export function ChatDemo() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8, duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
                   onClick={startDemo}
-                  className="group flex items-center gap-2 rounded-full border border-navy/[0.08] bg-white/60 px-5 py-2.5 text-sm font-medium text-navy/50 shadow-sm hover:bg-white/80 hover:text-navy/70 hover:border-navy/[0.12] hover:shadow-md cursor-pointer transition-all duration-200"
+                  className="group flex items-center gap-2 rounded-xl border border-navy/[0.08] text-sm font-medium text-navy/50 shadow-sm hover:bg-white/80 hover:text-navy/70 hover:border-navy/[0.12] hover:shadow-md cursor-pointer transition-all duration-200"
                 >
                   <PlayCircle className="h-4 w-4 text-primary group-hover:text-primary-dark transition-colors" />
-                  See How It Works
+                  
                 </motion.button>
               </motion.div>
             ) : (

@@ -156,7 +156,7 @@ The question isn't whether AI video will replace traditional production for cert
 
 ## You Can Just Generate Things
 
-This is exactly why we built **[youcanjustgeneratethings.com](https://youcanjustgeneratethings.com)**.
+This is exactly why we built **[ycjgt.com](https://ycjgt.com)**.
 
 The technology is incredible. But technology alone isn't enough. What most people need isn't access to a model — they need a *workflow*. They need to go from "I have assets and an idea" to "here's my finished video" without drowning in prompts, parameters, and technical complexity.
 
@@ -175,7 +175,7 @@ We handle the storyboard. We handle the generation. We handle all the friction.
 
 ---
 
-*Ready to see what AI video generation can do for your brand? [Try YCJGT now →](https://youcanjustgeneratethings.com)*`;
+*Ready to see what AI video generation can do for your brand? [Try YCJGT now →](https://ycjgt.com)*`;
 
     await ctx.db.insert("posts", {
       slug: "seedance-2-bytedance-ai-video-model-surpasses-sora-veo-kling",

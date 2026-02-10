@@ -56,7 +56,7 @@ export const markdownComponents: Components = {
             >
               <source src={href} type="video/mp4" />
             </video>
-            <span className="video-fallback hidden" style={{ display: 'none', padding: '1rem', textAlign: 'center' }}>
+            <span className="video-fallback hidden" style={{ padding: '1rem', textAlign: 'center' }}>
               <a 
                 href={href} 
                 target="_blank" 
