@@ -1,5 +1,6 @@
 "use client";
 
+import { Children, isValidElement } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Components } from "react-markdown";
@@ -20,11 +21,30 @@ export const markdownComponents: Components = {
       {children}
     </h3>
   ),
-  p: ({ children }) => (
-    <p className="text-[#0D1B3E]/80 leading-relaxed mb-4">
-      {children}
-    </p>
-  ),
+  p: ({ children }) => {
+    const nodes = Children.toArray(children);
+    const hasBlockChild = nodes.some((node) => {
+      if (!isValidElement(node) || typeof node.type !== "string") {
+        return false;
+      }
+      return [
+        "figure",
+        "div",
+        "table",
+        "pre",
+        "blockquote",
+        "hr",
+        "ul",
+        "ol",
+      ].includes(node.type);
+    });
+
+    if (hasBlockChild) {
+      return <>{children}</>;
+    }
+
+    return <p className="text-[#0D1B3E]/80 leading-relaxed mb-4">{children}</p>;
+  },
   a: ({ href, children }) => {
     // Check if this is a video link
     const isVideo = href && (
